@@ -1,28 +1,27 @@
 import pickle
 import pandas as pd
 from flask import Flask, request, Response
-from google.cloud import storage
-import google.auth
 
 from organizador import Projeto
 
 # Carregar as credenciais
-credentials, project_id = google.auth.default()
+#credentials, project_id = google.auth.default()
 
 # Criar um cliente com as credenciais
-client = storage.Client(credentials=credentials, project=project_id)
+#client = storage.Client(credentials=credentials, project=project_id)
     
 # Acesso ao bucket onde o modelo treinado está armazenado
-bucket_name = 'armazenamento-qualidade-concreto'
-bucket = client.get_bucket(bucket_name)
+#bucket_name = 'armazenamento-qualidade-concreto'
+#bucket = client.get_bucket(bucket_name)
 
 # Carregar modelo treinado
-blob_path_modelo = 'modelo/modelo_treinado.pkl'
-blob_modelo = bucket.blob(blob_path_modelo)
-blob_modelo.download_to_filename('/tmp/modelo_treinado.pkl')
+#blob_path_modelo = 'modelo/modelo_treinado.pkl'
+#blob_modelo = bucket.blob(blob_path_modelo)
+#blob_modelo.download_to_filename('/tmp/modelo_treinado.pkl')
 
 # Carregar o modelo treinado usando pickle
-modelo = pickle.load(open('/tmp/modelo_treinado.pkl', 'rb'))
+#modelo = pickle.load(open('/tmp/modelo_treinado.pkl', 'rb'))
+modelo = pickle.load(open('/modelo/modelo_treinado.pkl', 'rb'))
 
 app = Flask(__name__)
 
@@ -40,7 +39,7 @@ def predict():
             dados_que_vieram_da_producao = pd.DataFrame(teste_json, columns = teste_json[0].keys())
 
         #Instanciando a classe do projeto, neste caso, HealthInsurance
-        pipeline = projeto()
+        pipeline = Projeto()
 
         #Transformação dos dados
         df5 = pipeline.transformacao_dos_dados(dados_que_vieram_da_producao)
