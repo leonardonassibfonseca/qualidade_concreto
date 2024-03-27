@@ -6,8 +6,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 class Projeto:
     def __init__(self):
-        self.home_path = '/home/jupyter/'
-        self.age_mms = pickle.load(open(self.home_path + 'armazenamento-qualidade-concreto/transformacoes/age_mms.pkl', 'rb'))
+        self.home_path = '/transformacoes/'
+        self.age_mms = pickle.load(open(self.home_path + 'transformacoes/age_mms.pkl', 'rb'))
         self.cement_mms = pickle.load(open(self.home_path + 'armazenamento-qualidade-concreto/transformacoes/cement_mms.pkl', 'rb'))
         self.coarseaggregate_mms = pickle.load(open(self.home_path + 'armazenamento-qualidade-concreto/transformacoes/coarseaggregate_mms.pkl', 'rb'))
         self.fineaggregate_mms = pickle.load(open(self.home_path + 'armazenamento-qualidade-concreto/transformacoes/fineaggregate_mms.pkl', 'rb'))
