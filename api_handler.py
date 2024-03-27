@@ -22,7 +22,7 @@ def predict():
             #Se não for é um dicionário, foi enviado um arquivo com mais de uma linha
             dados_que_vieram_da_producao = pd.DataFrame(teste_json, columns = teste_json[0].keys())
 
-        #Instanciando a classe do projeto, neste caso, HealthInsurance
+        #Instanciando a classe do projeto
         pipeline = Projeto()
 
         #Transformação dos dados
