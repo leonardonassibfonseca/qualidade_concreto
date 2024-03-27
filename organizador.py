@@ -5,14 +5,14 @@ import numpy                                   as np
 class Projeto:
     def __init__(self):
         self.home_path = '/transformacoes/'
-        self.age_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_age_mms.pkl', 'rb'))
-        self.cement_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_cement_mms.pkl', 'rb'))
-        self.coarseaggregate_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_coarseaggregate_mms.pkl', 'rb'))
-        self.fineaggregate_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_fineaggregate_mms.pkl', 'rb'))
-        self.flyash_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_flyash_mms.pkl', 'rb'))
-        self.slag_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_slag_mms.pkl', 'rb'))
-        self.superplasticizer_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_superplasticizer_mms.pkl', 'rb'))
-        self.water_mms = pickle.load(open(self.home_path + 'transformacoes/transformacoes_water_mms.pkl', 'rb'))
+        self.age_mms = pickle.load(open(self.home_path + 'transformacoes_age_mms.pkl', 'rb'))
+        self.cement_mms = pickle.load(open(self.home_path + 'transformacoes_cement_mms.pkl', 'rb'))
+        self.coarseaggregate_mms = pickle.load(open(self.home_path + 'transformacoes_coarseaggregate_mms.pkl', 'rb'))
+        self.fineaggregate_mms = pickle.load(open(self.home_path + 'transformacoes_fineaggregate_mms.pkl', 'rb'))
+        self.flyash_mms = pickle.load(open(self.home_path + 'transformacoes_flyash_mms.pkl', 'rb'))
+        self.slag_mms = pickle.load(open(self.home_path + 'transformacoes_slag_mms.pkl', 'rb'))
+        self.superplasticizer_mms = pickle.load(open(self.home_path + 'transformacoes_superplasticizer_mms.pkl', 'rb'))
+        self.water_mms = pickle.load(open(self.home_path + 'transformacoes_water_mms.pkl', 'rb'))
 
     def transformacao_dos_dados(self, df5):
         df5['age'] = self.transformacoes_age_mms.transform(df5[['age']].values)
