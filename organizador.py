@@ -24,7 +24,20 @@ class Projeto:
         df5['superplasticizer'] = self.superplasticizer_mms.transform(df5[['superplasticizer']].values)
         df5['water'] = self.water_mms.transform(df5[['water']].values)
 
+    #def get_prediction(self, modelo, dados_original, dados_teste):
+    #    pred = modelo.predict(dados_teste)
+    #    dados_original['Score'] = pred[:, 1].tolist()
+    #    return dados_original.to_json(orient = 'records', date_format = 'iso')
+
     def get_prediction(self, modelo, dados_original, dados_teste):
+        # Transformar os dados de teste antes de fazer a previsão
+        self.transformacao_dos_dados(dados_teste)
+    
+        # Fazer a previsão com o modelo
         pred = modelo.predict(dados_teste)
-        dados_original['Score'] = pred[:, 1].tolist()
+    
+        # Adicionar as previsões aos dados originais
+        dados_original['Score'] = pred.tolist()
+    
+        # Retornar os resultados em formato JSON
         return dados_original.to_json(orient = 'records', date_format = 'iso')
