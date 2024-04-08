@@ -4,7 +4,7 @@ import numpy                                   as np
 
 class Projeto:
     def __init__(self):
-        self.home_path = '/home/leonardo/projetos_/qualidade_concreto/transformacoes/'
+        self.home_path = 'transformacoes/'
         self.age_mms = pickle.load(open(self.home_path + 'age_mms.pkl', 'rb'))
         self.cement_mms = pickle.load(open(self.home_path + 'cement_mms.pkl', 'rb'))
         self.coarseaggregate_mms = pickle.load(open(self.home_path + 'coarseaggregate_mms.pkl', 'rb'))
