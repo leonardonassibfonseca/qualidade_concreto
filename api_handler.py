@@ -10,7 +10,7 @@ from flask import Flask, request, Response
 from script import Projeto
 
 # Carregando o modelo treinado usando pickle
-modelo = pickle.load(open('/home/leonardo/projetos_/qualidade_concreto/modelo/modelo_treinado.pkl', 'rb'))
+modelo = pickle.load(open('modelo/modelo_treinado.pkl', 'rb'))
 
 app = Flask(__name__)
 
