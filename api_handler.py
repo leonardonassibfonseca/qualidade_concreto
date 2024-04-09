@@ -30,10 +30,13 @@ def predict():
         #Instanciando a classe do projeto
         pipeline = Projeto()
 
+        #Copiando os dados
+        df4 = pipeline.dados_orig(dados_originais)
+
         #Transformação dos dados
-        df5 = pipeline.transformacao_dos_dados(dados_originais)
+        df5 = pipeline.transformacao_dos_dados(df4)
         
-        #predição
+        #Predição
         df_resposta = pipeline.get_prediction(modelo, dados_originais, df5)
         
         return df_resposta
