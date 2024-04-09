@@ -34,5 +34,5 @@ class Projeto:
 
     def get_prediction(self, modelo, dados_original, dados_teste):
         pred = modelo.predict(dados_teste)
-        dados_original['Score'] = np.expm1(pred)
+        dados_original['Score'] = pred
         return dados_original.to_json(orient = 'records', date_format = 'iso')
