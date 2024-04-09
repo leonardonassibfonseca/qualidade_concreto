@@ -14,6 +14,10 @@ class Projeto:
         self.superplasticizer_mms = pickle.load(open(self.home_path + 'superplasticizer_mms.pkl', 'rb'))
         self.water_mms = pickle.load(open(self.home_path + 'water_mms.pkl', 'rb'))
 
+    def dados_orig(self, df4):
+        dados_original = df4.copy()
+        return dados_original
+
     def transformacao_dos_dados(self, df5):
         df5['age'] = self.age_mms.transform(df5[['age']].values)
         df5['cement'] = self.cement_mms.transform(df5[['cement']].values)
