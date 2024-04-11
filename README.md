@@ -1,8 +1,8 @@
-# qualidade_concreto
+# Qualidade Concreto
 
 Propensão de clientes na modalidade Cross-Sell em uma seguradora de saúde
 
-![Grafico](Img/health_insurance.JPG)
+![Grafico](img/ensaio_resistencia.JPG)
 
 ## 1.	Problema de negócio
 Uma seguradora que oferece Seguro Saúde aos seus clientes, agora eles precisam da sua ajuda na construção de um modelo para prever se os segurados (clientes) do ano passado também terão interesse no Seguro Automóvel oferecido pela empresa.
