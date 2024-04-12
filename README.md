@@ -63,11 +63,15 @@ Na tabela abaixo, são apresentadas as diferenças percentuais entre os valores 
 
 ## 9.	Conclusão
 Ao enfrentar o desafio de desenvolver um modelo de machine learning para prever a resistência do concreto, fica evidente a importância crucial desse aspecto na construção civil. A resistência do concreto não só determina a qualidade das estruturas, mas também influencia diretamente sua durabilidade e segurança. Compreender os componentes individuais do concreto, como cimento, escarpa, cinzas volantes, água, superplastificante, agregado graúdo, agregado fino e idade do concreto, revela-se essencial para tomar decisões informadas durante o processo de mistura e aplicação.
+
 Além disso, a análise das diferenças percentuais entre os valores de resistência do concreto em diferentes faixas oferece insights valiosos sobre a variabilidade dos custos associados à construção. Essa compreensão detalhada pode guiar a otimização de recursos e a identificação de oportunidades de economia, contribuindo para a eficiência geral dos projetos.
 
 ## 10.	Próximos passos
 •	Refazer a previsão utlizando outros metódos de transformação dos dados;
+
 •	Testar outros algoritmos de machine learning;
+
 •	Buscar novas variáveis para definir melhor o comportamento das durezas;
+
 •	Implementar o deploy em ambiente cloud utilizando o GCP.
 
