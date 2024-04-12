@@ -40,7 +40,7 @@ Passo 10 - Modelo em produção: Nesta etapa final, o melhor modelo treinado é 
 ## 5.	Preparação dos dados
 Considerando que os dados não seguem uma distribuição normal, foi decidido utilizar o método MinMaxScaler para normalizá-los e trazê-los para uma escala entre 0 e 1.
 
-![Tabela](img/distribuicao_dados.jpg)
+![Tabela](img/distribuicao_dados.png)
 
 ## 6.	Aplicação do modelo de machine learning
 Foram feitos testes com vários algoritmos de machine learning, utilizando a técnica de cross-validation e ajuste fino dos parâmetros.
