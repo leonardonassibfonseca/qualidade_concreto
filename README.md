@@ -1,24 +1,19 @@
 # Qualidade Concreto
 
-Propensão de clientes na modalidade Cross-Sell em uma seguradora de saúde
+Determinar a qualidade (dureza) do concreto atráves de seus componentes
 
 ![Grafico](img/ensaio_resistencia.JPG)
 
 ## 1.	Problema de negócio
-Uma seguradora que oferece Seguro Saúde aos seus clientes, agora eles precisam da sua ajuda na construção de um modelo para prever se os segurados (clientes) do ano passado também terão interesse no Seguro Automóvel oferecido pela empresa.
-
-Uma apólice de seguro é um acordo pelo qual uma empresa se compromete a fornecer uma garantia de compensação por perdas, danos, doenças ou morte em troca do pagamento de um prêmio específico. Um prêmio é uma quantia em dinheiro que o cliente precisa pagar regularmente a uma seguradora por esta garantia.
-
-Por exemplo, você pode pagar um prêmio de Rs. 5.000 por ano para uma cobertura de seguro saúde de Rs. 200.000/- para que se, Deus me livre, você adoecer e precisar ser hospitalizado naquele ano, a seguradora arcará com o custo da hospitalização, etc., por até Rs. 200.000. Agora, se você está se perguntando como uma empresa pode arcar com custos de hospitalização tão altos quando cobra um prêmio de apenas Rs. 5000/-, é aí que o conceito de probabilidades entra em cena. Por exemplo, como você, pode haver 100 clientes que pagariam um prêmio de Rs. 5.000 todos os anos, mas apenas alguns deles (digamos 2-3) seriam hospitalizados naquele ano e nem todos. Dessa forma, todos compartilham o risco de todos os outros.
-
-Assim como o seguro médico, existe o seguro automóvel, onde todos os anos o cliente precisa pagar um prêmio de determinado valor à seguradora para que, em caso de acidente com o veículo, a seguradora forneça uma indenização (chamada de 'soma assegurada') para o consumidor.
+Uma construtora gostaria de medir a resistência do concreto baseando-se nas caracterisiticas disponíveis, ela depende dessa questão para construir nossos projetos e reduzir os custos envolvidos. Ainda existe uma certa dificuldade do time de engenheiros em confiar em um algoritmo de machine learning, então quanto mais acertivo for a previsão da dureza do concreto, mais confiabilidade a equipe de engenheiros terá para aceitar este tipo de solução aos seus projetos.
 
 ## 2.	Objetivo
-Construir um modelo para prever se um cliente estaria interessado em seguro automóvel é extremamente útil para a empresa porque ela pode então planear a sua estratégia de comunicação para chegar a esses clientes e otimizar o seu modelo de negócio e receitas.
+Construir um modelo para prever a dureza do concreto para que o time de engenheiros possa utilizar essa solução para os novos projetos e conseguentemente reduzindo os custos envolvidos.
 
 ## 3.	Premissas do negócio
-O custo unitário por cada contato do time comercial é de Rs 4
-A receita bruta por cada cliente que aderisse ao seguro de veículo seria de Rs 40.
+O custo unitário por cada componente é mostrado na tabela abaixo.
+
+![Grafico](img/custo_unitario.JPG)
 
 ## 4.	Estratégia adotada para solução
 
@@ -42,38 +37,37 @@ Passo 9 - Performance do negócio: Nesta etapa, o termo "performance do negócio
 
 Passo 10 - Modelo em produção: Nesta etapa final, o melhor modelo treinado é implantado e usado em um ambiente operacional do mundo real. O objetivo principal deste passo de colocar um modelo em produção é transformar o trabalho de desenvolvimento de modelos em um sistema que pode fornecer valor contínuo e automático.
 
-## 5.	Top 3 insights
-Hipótese 1: Clientes que tem carteira de motorista teriam mais interesse em contratar um seguro de veículo?
-Falsa: Clientes que tem carteira de motorista NÃO teriam mais interesse em contratar um seguro de veículo.
+## 5.	Preparação dos dados
+Considerando que os dados não seguem uma distribuição normal, foi decidido utilizar o método MinMaxScaler para normalizá-los e trazê-los para uma escala entre 0 e 1.
 
-Hipótese 2: Clientes que já possuíam seguro anteriormente teriam mais interesse em contratar um novo seguro de veículo?
-Falsa: Clientes que já possuíam seguro anteriormente NÃO teriam mais interesse em contratar um novo seguro de veículo.
-
-Hipótese 3: Clientes que tem veículos mais novos teriam mais interesse em contratar um seguro de veículo?
-Falsa: Clientes que tem veículos entre 1 e 2 anos teriam mais interesse em contratar um seguro de veículo.
+![Tabela](img/distribuicao_dados.JPG)
 
 ## 6.	Aplicação do modelo de machine learning
-Foram feitos testes com vários algoritmos de machine learning, utilizando a técnica de cross-validation, balanceamento e ajuste fino dos parâmetros.
+Foram feitos testes com vários algoritmos de machine learning, utilizando a técnica de cross-validation e ajuste fino dos parâmetros.
 
-![Tabela](Img/Tabela_algoritmos.JPG)
+![Tabela](img/tabela_algoritmos.JPG)
 
 ## 7.	Performance do modelo de machine learning
-O algoritmo de machine learning escolhido foi o XGboost.
+O algoritmo de machine learning escolhido foi o GradientBoostingRegressor.
 
-![Resultado_algoritmo](Img/resultado_algoritmo.JPG)
+![Resultado_algoritmo](img/resultado_algoritmo_escolhido.JPG)
 
 ## 8.	Resultado do negócio
-Conforme informação do projeto, a seguradora tem capacidade de entrar em contato com aproximadamente 20.000 clientes para oferecer um seguro de veículo.
+Conforme simulação do projeto, os custos totais de cada faixa de dureza do concreto foram tabeladas conforme abaixo.
 
-Do ponto de vista de negócio, estes 20.000 clientes correspondem a pouco mais de 26% da base de clientes.
-Assumindo que o custo unitário é de Rs 4 e a receita bruta é de Rs 40, segue na tabela abaixo qual o valor da receita em relação ao percentual de clientes consultados.  
+![Resultado_algoritmo](img/custo_total.JPG)
 
-![Resultado_negocio](Img/resultado_negocio.jpg)
+Na tabela abaixo, são apresentadas as diferenças percentuais entre os valores de csMPA correspondentes a cada intervalo. Por exemplo, para a faixa entre 10.00-19.99 de csMPA, os custos variam de 25651,00 a 28864,90, resultando em uma diferença de 11% entre o maior e o menor valor de custo. Este padrão é seguido para os demais intervalos.
+
+![Resultado_negocio](img/resultado_negocio.jpg)
 
 ## 9.	Conclusão
-As conclusões deste projeto de propensão de compra de seguro veicular revelaram que as variáveis disponíveis se mostraram insuficientes para impulsionar um desempenho mais robusto nos algoritmos de machine learning. Além disso, observou-se uma tendência significativa, indicando que motoristas sem carteira de motorista demonstraram maior interesse na aquisição de seguro de veículo em comparação com seus homólogos que possuem carteira de motorista. Essas descobertas destacam a importância de considerar variáveis adicionais e nuances comportamentais ao desenvolver modelos classificatórios para compreender as preferências dos consumidores em relação a seguro de veículo.
+Ao enfrentar o desafio de desenvolver um modelo de machine learning para prever a resistência do concreto, fica evidente a importância crucial desse aspecto na construção civil. A resistência do concreto não só determina a qualidade das estruturas, mas também influencia diretamente sua durabilidade e segurança. Compreender os componentes individuais do concreto, como cimento, escarpa, cinzas volantes, água, superplastificante, agregado graúdo, agregado fino e idade do concreto, revela-se essencial para tomar decisões informadas durante o processo de mistura e aplicação.
+Além disso, a análise das diferenças percentuais entre os valores de resistência do concreto em diferentes faixas oferece insights valiosos sobre a variabilidade dos custos associados à construção. Essa compreensão detalhada pode guiar a otimização de recursos e a identificação de oportunidades de economia, contribuindo para a eficiência geral dos projetos.
 
 ## 10.	Próximos passos
-•	Refazer o balanceamento dos dados com outros algoritmos;
+•	Refazer a previsão utlizando outros metódos de transformação dos dados;
 •	Testar outros algoritmos de machine learning;
-•	Buscar novas variáveis para definir melhor o comportamento dos clientes.
+•	Buscar novas variáveis para definir melhor o comportamento das durezas;
+•	Implementar o deploy em ambiente cloud utilizando o GCP.
+
