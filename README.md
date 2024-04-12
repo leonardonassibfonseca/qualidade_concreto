@@ -13,7 +13,7 @@ Construir um modelo para prever a dureza do concreto para que o time de engenhei
 ## 3.	Premissas do negócio
 O custo unitário por cada componente é mostrado na tabela abaixo.
 
-![Grafico](img/custo_unitario.JPG)
+![Grafico](img/custo_unitario.jpg)
 
 ## 4.	Estratégia adotada para solução
 
@@ -40,26 +40,30 @@ Passo 10 - Modelo em produção: Nesta etapa final, o melhor modelo treinado é 
 ## 5.	Preparação dos dados
 Considerando que os dados não seguem uma distribuição normal, foi decidido utilizar o método MinMaxScaler para normalizá-los e trazê-los para uma escala entre 0 e 1.
 
-![Tabela](img/distribuicao_dados.JPG)
+![Tabela](img/distribuicao_dados.jpg)
 
 ## 6.	Aplicação do modelo de machine learning
 Foram feitos testes com vários algoritmos de machine learning, utilizando a técnica de cross-validation e ajuste fino dos parâmetros.
 
-![Tabela](img/tabela_algoritmos.JPG)
+![Tabela](img/tabela_algoritmos.jpg)
 
 ## 7.	Performance do modelo de machine learning
 O algoritmo de machine learning escolhido foi o GradientBoostingRegressor.
 
-![Resultado_algoritmo](img/resultado_algoritmo_escolhido.JPG)
+![Resultado_algoritmo](img/resultado_algoritmo_escolhido.jpg)
 
 ## 8.	Resultado do negócio
 Conforme simulação do projeto, os custos totais de cada faixa de dureza do concreto foram tabeladas conforme abaixo.
 
-![Resultado_algoritmo](img/custo_total.JPG)
+![Resultado_algoritmo](img/custo_total.jpg)
 
-Na tabela abaixo, são apresentadas as diferenças percentuais entre os valores de csMPA correspondentes a cada intervalo. Por exemplo, para a faixa entre 10.00-19.99 de csMPA, os custos variam de 25651,00 a 28864,90, resultando em uma diferença de 11% entre o maior e o menor valor de custo. Este padrão é seguido para os demais intervalos.
+Na tabela abaixo, são apresentadas as diferenças percentuais entre os valores de csMPA correspondentes a cada intervalo. Por exemplo, na faixa entre 10.00-19.99 de csMPA, os custos variam de 25651,00 a 28864,90, resultando em uma diferença de 11% entre o maior e o menor valor de custo. Esse padrão é seguido para os demais intervalos.
 
 ![Resultado_negocio](img/resultado_negocio.jpg)
+
+Além disso, foi possível implementar a consulta através de planilhas do Google Sheets, onde é possível ajustar qualquer valor de variável e o modelo retornará o valor da dureza correspondente.
+
+![Resultado_negocio](img/google_sheets.jpg)
 
 ## 9.	Conclusão
 Ao enfrentar o desafio de desenvolver um modelo de machine learning para prever a resistência do concreto, fica evidente a importância crucial desse aspecto na construção civil. A resistência do concreto não só determina a qualidade das estruturas, mas também influencia diretamente sua durabilidade e segurança. Compreender os componentes individuais do concreto, como cimento, escarpa, cinzas volantes, água, superplastificante, agregado graúdo, agregado fino e idade do concreto, revela-se essencial para tomar decisões informadas durante o processo de mistura e aplicação.
