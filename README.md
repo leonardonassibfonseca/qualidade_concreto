@@ -50,7 +50,7 @@ Foram feitos testes com vários algoritmos de machine learning, utilizando a té
 ## 7.	Performance do modelo de machine learning
 Para escolher o melhor algoritmo, foi utlizado os dados de teste (separados inicialmente), e o resultado é mostrado abaixo com o algoritmo GradientBoostingRegressor.
 
-![Resultado_algoritmo](img/resultado_algoritmo_escolhido.jpg)
+![Resultado_algoritmo](img/resultado_algoritmo_escolhido_.jpg)
 
 ## 8.	Resultado do negócio
 Conforme simulação do projeto, os custos totais de cada faixa de dureza do concreto foram tabeladas conforme abaixo.
