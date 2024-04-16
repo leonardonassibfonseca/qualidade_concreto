@@ -43,12 +43,12 @@ Considerando que os dados não seguem uma distribuição normal, foi decidido ut
 ![Tabela](img/distribuicao_dados.png)
 
 ## 6.	Aplicação do modelo de machine learning
-Foram feitos testes com vários algoritmos de machine learning, utilizando a técnica de cross-validation e ajuste fino dos parâmetros.
+Foram feitos testes com vários algoritmos de machine learning, utilizando a técnica de cross-validation e ajuste fino dos parâmetros. Lembrando que foram utlizados os dados de treino nestes testes.
 
 ![Tabela](img/tabela_algoritmos.jpg)
 
 ## 7.	Performance do modelo de machine learning
-O algoritmo de machine learning escolhido foi o GradientBoostingRegressor.
+Para escolher o melhor algoritmo, foi utlizado os dados de teste (separados inicialmente), e o resultado é mostrado abaixo com o algoritmo GradientBoostingRegressor.
 
 ![Resultado_algoritmo](img/resultado_algoritmo_escolhido.jpg)
 
