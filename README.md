@@ -61,7 +61,7 @@ Na tabela abaixo, são apresentadas as diferenças percentuais entre os valores 
 
 ![Resultado_negocio](img/resultado_negocio_.jpg)
 
-Além disso, foi possível implementar a consulta através de planilhas do Google Sheets, onde é possível ajustar qualquer valor de variável e o modelo retornará o valor da dureza correspondente.
+As consultas as predições são feitas via API através de planilhas do Google Sheets, onde é possível ajustar qualquer valor de variável que e o modelo retorna o valor da dureza correspondente.
 
 ![Resultado_negocio](img/google_sheets.jpg)
 
