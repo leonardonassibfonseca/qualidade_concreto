@@ -59,7 +59,7 @@ Conforme simulação do projeto, os custos totais de cada faixa de dureza do con
 
 Na tabela abaixo, são apresentadas as diferenças percentuais entre os valores de csMPA correspondentes a cada intervalo. Por exemplo, na faixa entre 10.00-19.99 de csMPA, os custos variam de 25651,00 a 28864,90, resultando em uma diferença de 11% entre o maior e o menor valor de custo. Esse padrão é seguido para os demais intervalos.
 
-![Resultado_negocio](img/resultado_negocio.jpg)
+![Resultado_negocio](img/resultado_negocio_.jpg)
 
 Além disso, foi possível implementar a consulta através de planilhas do Google Sheets, onde é possível ajustar qualquer valor de variável e o modelo retornará o valor da dureza correspondente.
 
