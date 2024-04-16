@@ -5,10 +5,10 @@ Determinar a qualidade (dureza) do concreto atráves de seus componentes
 ![Grafico](img/ensaio_resistencia.JPG)
 
 ## 1.	Problema de negócio
-Uma construtora gostaria de medir a resistência do concreto baseando-se nas caracterisiticas disponíveis, ela depende dessa questão para construir nossos projetos e reduzir os custos envolvidos. Ainda existe uma certa dificuldade do time de engenheiros em confiar em um algoritmo de machine learning, então quanto mais acertivo for a previsão da dureza do concreto, mais confiabilidade a equipe de engenheiros terá para aceitar este tipo de solução aos seus projetos.
+Uma construtora gostaria de medir a resistência do concreto baseando-se nas caracterisiticas disponíveis, ela depende dessa questão para construir nossos projetos e reduzir os custos envolvidos. Ainda existe uma certa dificuldade do time de engenheiros em confiar em um algoritmo de machine learning, então quanto mais assertivo for a previsão da dureza do concreto, mais confiabilidade a equipe de engenheiros terá para aceitar este tipo de solução aos seus projetos.
 
 ## 2.	Objetivo
-Construir um modelo para prever a dureza do concreto para que o time de engenheiros possa utilizar essa solução para os novos projetos e conseguentemente reduzindo os custos envolvidos.
+Construir um modelo para prever a dureza do concreto para que o time de engenheiros possa utilizar essa solução para os novos projetos e consequentemente reduzindo os custos envolvidos.
 
 ## 3.	Premissas do negócio
 O custo unitário por cada componente é mostrado na tabela abaixo.
