@@ -1,22 +1,16 @@
-runtime: python310  # Versão do Python que você está utilizando (pode variar conforme a versão)
-entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app  # Comando para rodar sua app com Gunicorn e Uvicorn
+runtime: python39
+
+entrypoint: gunicorn -b :$PORT main:app
+
+instance_class: F2
 
 env_variables:
-  MODEL_PATH: "modelo/modelo_treinado.pkl"  # Defina o caminho do seu modelo treinado (caso use variável de ambiente)
-
-instance_class: F2  # Classe de instância, você pode ajustar conforme a necessidade de recursos (F2 é uma instância de média capacidade)
-automatic_scaling:
-  min_instances: 1  # Número mínimo de instâncias que você quer rodando
-  max_instances: 10  # Número máximo de instâncias que você deseja escalar conforme a demanda
+  # Variáveis de ambiente que você precisar adicionar
+  EXAMPLE_VARIABLE: 'example_value'
 
 handlers:
   - url: /static
-    static_dir: static/  # Se você tiver arquivos estáticos, como CSS ou imagens, defina os diretórios aqui
-  - url: /favicon.ico
-    static_file: favicon.ico
-  - url: /.*  # Direciona todas as outras rotas para sua aplicação FastAPI
-    script: auto  # Usado para rodar a aplicação FastAPI
+    static_dir: static  # Diretório onde seus arquivos estáticos estão armazenados
 
-# Configurações de Logs
-env_variables:
-  CLOUD_LOGGING: "True"
+  - url: /.*
+    script: auto
