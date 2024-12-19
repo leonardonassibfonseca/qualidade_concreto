@@ -1,5 +1,6 @@
 import pickle
 import pandas as pd
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
@@ -10,7 +11,11 @@ app = FastAPI()
 with open('modelo/modelo_treinado.pkl', 'rb') as f:
     model = pickle.load(f)
 
-# Definindo um modelo Pydantic para os dados de entrada
+@app.get('/')
+def home():
+    return "Hello World"
+
+# Definindo um modelo Pydantic para os dados de entrada no POST
 class InputData(BaseModel):
     cement: float
     slag: float
@@ -21,22 +26,63 @@ class InputData(BaseModel):
     fineaggregate: float
     age: float
 
-@app.get('/')
-def home():
-    return "Hello World"
+    class Config:
+        schema_extra = {"example": {"cement": 0.0,
+                                    "slag": 0.0,
+                                    "flyash": 0.0,
+                                    "water": 0.0,
+                                    "superplasticizer": 0.0,
+                                    "coarseaggregate": 0.0,
+                                    "fineaggregate": 0.0,
+                                    "age": 0.0}}
 
-@app.post('/predict')
-def predict(input_data: List[InputData]):
-    # Convertendo os dados recebidos para um DataFrame
-    df_input = pd.DataFrame([item.dict() for item in input_data])
+@app.get('/predict')
+def predict(cement: float,
+            slag: float,
+            flyash: float,
+            water: float,
+            superplasticizer: float,
+            coarseaggregate: float,
+            fineaggregate: float,
+            age: float):
     
+    # Criando um DataFrame a partir dos parâmetros recebidos
+    df_input = pd.DataFrame({'cement': [cement],
+                             'slag': [slag],
+                             'flyash': [flyash],
+                             'water': [water],
+                             'superplasticizer': [superplasticizer],
+                             'coarseaggregate': [coarseaggregate],
+                             'fineaggregate': [fineaggregate],
+                             'age': [age]})
+
     # Fazendo as previsões
     y_pred = model.predict(df_input)
-    
-    # Retornando as previsões
-    predictions = [{"prediction": pred} for pred in y_pred]
-    return {"predictions": predictions}
+    return {"prediction": y_pred[0]}
 
-if __name__ == "__main__":
-    import uvicorn
+@app.post('/predict')
+def predict_post(cement: float,
+                 slag: float,
+                 flyash: float,
+                 water: float,
+                 superplasticizer: float,
+                 coarseaggregate: float,
+                 fineaggregate: float,
+                 age: float):
+    
+    # Criando um DataFrame a partir dos parâmetros recebidos
+    df_input = pd.DataFrame({'cement': [cement],
+                             'slag': [slag],
+                             'flyash': [flyash],
+                             'water': [water],
+                             'superplasticizer': [superplasticizer],
+                             'coarseaggregate': [coarseaggregate],
+                             'fineaggregate': [fineaggregate],
+                             'age': [age]})
+
+    # Fazendo as previsões
+    y_pred = model.predict(df_input)
+    return {"prediction": y_pred[0]}
+
+if __name__ == "__main__":    
     uvicorn.run("app:app", host = "0.0.0.0", port = 8000, reload = True)
